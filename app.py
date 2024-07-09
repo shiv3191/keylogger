@@ -61,8 +61,10 @@
 
 # if __name__ == '__main__':
 #     app.run(debug=True)
+import os
 from flask import Flask, request, jsonify
-from pynput.keyboard import Key, Listener
+if os.getenv('ENV') != 'production':
+    from pynput.keyboard import Key, Listener
 import threading
 
 app = Flask(__name__)
